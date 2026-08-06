@@ -1,0 +1,40 @@
+<svg width="1000" height="300" viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Fundo -->
+    <rect width="1000" height="300" fill="#030712"/>
+
+    <!-- Estrelas -->
+    <circle cx="100" cy="50" r="2" fill="white"/>
+    <circle cx="250" cy="90" r="1.5" fill="white"/>
+    <circle cx="400" cy="40" r="2" fill="white"/>
+    <circle cx="600" cy="80" r="1.5" fill="white"/>
+    <circle cx="850" cy="50" r="2" fill="white"/>
+    <circle cx="900" cy="180" r="1.5" fill="white"/>
+    <circle cx="700" cy="220" r="2" fill="white"/>
+    <circle cx="300" cy="240" r="1.5" fill="white"/>
+    <circle cx="150" cy="200" r="2" fill="white"/>
+
+    <!-- Título -->
+    <text
+        x="500"
+        y="140"
+        text-anchor="middle"
+        fill="white"
+        font-size="32"
+        font-family="Arial"
+        font-weight="bold">
+        NATHANAEL SANTOS
+    </text>
+
+    <!-- Subtítulo -->
+    <text
+        x="500"
+        y="180"
+        text-anchor="middle"
+        fill="#94A3B8"
+        font-size="18"
+        font-family="Arial">
+        Exploring the Universe Through Code
+    </text>
+
+</svg>
