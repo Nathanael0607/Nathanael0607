@@ -89,4 +89,41 @@
             repeatCount="indefinite"
         />
     </circle>
+
+    <!--Brilho externo do buraco negro-->
+    <circle 
+        cx="500"
+        cy="150"
+        r="2"
+        fill="#7C3AED"
+        opacity="0.10"
+        />
+
+    <!-- Disco de acreção -->
+    <ellipse
+        cx="500"
+        cy="150"
+        rx="105"
+        ry="28"
+        fill="none"
+        stroke="#F59E0B"
+        stroke-width="10"
+        opacity="0.75"
+    />
+    <!-- Horizonte de eventos -->
+    <circle
+        cx="500"
+        cy="150"
+        r="48"
+        fill="#000000"
+    />
+
+    <!-- Sombra interna -->
+    <circle
+        cx="500"
+        cy="150"
+        r="36"
+        fill="#020617"
+    />
+
 </svg>
