@@ -1,0 +1,23 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1000"
+    height="300"
+    viewBox="0 0 1000 300">
+
+    <defs>
+
+        <!-- Fundo -->
+        <linearGradient id="space" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#020617"/>
+            <stop offset="50%" stop-color="#090E2A"/>
+            <stop offset="100%" stop-color="#000000"/>
+        </linearGradient>
+
+    </defs>
+
+    <rect
+        width="1000"
+        height="300"
+        fill="url(#space)"/>
+
+</svg>
