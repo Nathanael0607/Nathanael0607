@@ -13,6 +13,16 @@
             <stop offset="100%" stop-color="#000000"/>
         </linearGradient>
 
+        <radialGradient id="nebulaPurple" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.45"/>
+            <stop offset="50%" stop-color="#4C1D95" stop-opacity="0.20"/>
+            <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+        </radialGradient>
+
+        <filter id="blurNebula">
+            <feGaussianBlur stdDeviation="35"/>
+        </filter>
+
     </defs>
 
     <rect
@@ -20,4 +30,63 @@
         height="300"
         fill="url(#space)"/>
 
+        <!-- Nebulosa -->
+    <ellipse
+        cx="280"
+        cy="130"
+        rx="220"
+        ry="90"
+        fill="url(#nebulaPurple)"
+        filter="url(#blurNebula)"
+    />
+
+    <ellipse
+        cx="650"
+        cy="180"
+        rx="260"
+        ry="100"
+        fill="url(#nebulaPurple)"
+        filter="url(#blurNebula)"
+        opacity="0.6"
+    />
+
+        <!-- Estrelas pequenas -->
+    <circle cx="80" cy="60" r="1.2" fill="#FFFFFF" opacity="0.8"/>
+    <circle cx="170" cy="40" r="1" fill="#FFFFFF" opacity="0.6"/>
+    <circle cx="230" cy="210" r="1.4" fill="#FFFFFF" opacity="0.9"/>
+    <circle cx="350" cy="70" r="1" fill="#FFFFFF" opacity="0.7"/>
+    <circle cx="430" cy="240" r="1.3" fill="#FFFFFF" opacity="0.8"/>
+    <circle cx="560" cy="55" r="1.1" fill="#FFFFFF" opacity="0.7"/>
+    <circle cx="690" cy="80" r="1.4" fill="#FFFFFF" opacity="0.9"/>
+    <circle cx="780" cy="230" r="1" fill="#FFFFFF" opacity="0.6"/>
+    <circle cx="870" cy="90" r="1.3" fill="#FFFFFF" opacity="0.8"/>
+    <circle cx="930" cy="200" r="1.1" fill="#FFFFFF" opacity="0.7"/>
+
+    <!-- Estrelas animadas -->
+    <circle cx="120" cy="150" r="2" fill="#FFFFFF">
+        <animate
+            attributeName="opacity"
+            values="0.2;1;0.2"
+            dur="3s"
+            repeatCount="indefinite"
+        />
+    </circle>
+
+    <circle cx="500" cy="40" r="2.3" fill="#FFFFFF">
+        <animate
+            attributeName="opacity"
+            values="0.3;1;0.3"
+            dur="4s"
+            repeatCount="indefinite"
+        />
+    </circle>
+
+    <circle cx="820" cy="140" r="2" fill="#FFFFFF">
+        <animate
+            attributeName="opacity"
+            values="0.2;0.9;0.2"
+            dur="2.5s"
+            repeatCount="indefinite"
+        />
+    </circle>
 </svg>
