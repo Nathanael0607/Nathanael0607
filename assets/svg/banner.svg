@@ -153,6 +153,35 @@
         opacity="0.65"
     />
 
+    <!-- Arco brilhante esquerdo -->
+    <ellipse
+        cx="500"
+        cy="150"
+        rx="105"
+        ry="28"
+        fill="none"
+        stroke="#FFF7CC"
+        stroke-width="5"
+        stroke-linecap="round"
+        stroke-dasharray="90 570"
+        stroke-dashoffset="20"
+        opacity="0.9"
+    />
+
+    <!-- Arco brilhante direito -->
+    <ellipse
+        cx="500"
+        cy="150"
+        rx="105"
+        ry="28"
+        fill="none"
+        stroke="#FDBA74"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-dasharray="65 595"
+        stroke-dashoffset="-160"
+        opacity="0.75"
+    />
 
     <!-- Horizonte de eventos -->
     <circle
