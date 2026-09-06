@@ -23,27 +23,31 @@
             <feGaussianBlur stdDeviation="35"/>
         </filter>
 
-        <!-- Gradiente do disco de acreção -->
-        <linearGradient id="accretionGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#F97316"/>
-            <stop offset="50%" stop-color="#FDE68A"/>
-            <stop offset="100%" stop-color="#DC2626"/>
+        <!-- Gradiente da faixa central do disco -->
+        <linearGradient id="beamGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#DC2626" stop-opacity="0"/>
+            <stop offset="18%" stop-color="#F97316" stop-opacity="0.8"/>
+            <stop offset="45%" stop-color="#FFF7CC"/>
+            <stop offset="55%" stop-color="#FFFFFF"/>
+            <stop offset="82%" stop-color="#F97316" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#DC2626" stop-opacity="0"/>
         </linearGradient>
 
         <!-- Brilho do disco -->
-        <filter id="glowAccretion">
-            <feGaussianBlur stdDeviation="6" result="blur"/>
+        <filter id="strongGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="5" result="blur"/>
             <feMerge>
-                <feMergeNode in="blur"/>
-                <feMergeNode in="SourceGraphic"/>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
             </feMerge>
         </filter>
 
         <!-- Gradiente radial de brilho do disco -->
-        <radialGradient id="accretionGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#FDE68A" stop-opacity="0.45"/>
-            <stop offset="45%" stop-color="#F97316" stop-opacity="0.22"/>
-            <stop offset="100%" stop-color="#DC2626" stop-opacity="0"/>
+        <radialGradient id="eventGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="55%" stop-color="#000000"/>
+            <stop offset="72%" stop-color="#F97316" stop-opacity="0.45"/>
+            <stop offset="100%" stop-color="#F97316" stop-opacity="0"/>
         </radialGradient>
 
     </defs>
@@ -114,28 +118,144 @@
     </circle>
 
     <!-- Brilho externo pulsante do buraco negro -->
-    <circle
-        cx="500"
-        cy="150"
-        r="72"
-        fill="#7C3AED"
-        opacity="0.10">
+    <!-- ================================= -->
+    <!-- BURACO NEGRO                     -->
+    <!-- ================================= -->
 
-        <animate
-            attributeName="opacity"
-            values="0.06;0.18;0.06"
-            dur="6s"
-            repeatCount="indefinite"
+    <g id="black-hole">
+
+        <!-- Aura geral -->
+        <ellipse
+            cx="500"
+            cy="150"
+            rx="145"
+            ry="55"
+            fill="url(#accretionGlow)"
+            opacity="0.55"
         />
 
-        <animate
-            attributeName="r"
-            values="68;78;68"
-            dur="6s"
-            repeatCount="indefinite"
+        <!-- Disco traseiro externo -->
+        <ellipse
+            cx="500"
+            cy="150"
+            rx="125"
+            ry="31"
+            fill="none"
+            stroke="url(#accretionGradient)"
+            stroke-width="13"
+            opacity="0.28"
+            filter="url(#strongGlow)"
         />
 
-    </circle>
+        <!-- Disco traseiro principal -->
+        <ellipse
+            cx="500"
+            cy="150"
+            rx="118"
+            ry="27"
+            fill="none"
+            stroke="url(#accretionGradient)"
+            stroke-width="7"
+            opacity="0.9"
+        />
+
+        <!-- Curvatura superior da luz -->
+        <path
+            d="M 440 150
+            C 443 103, 557 103, 560 150"
+            fill="none"
+            stroke="#FDBA74"
+            stroke-width="8"
+            stroke-linecap="round"
+            opacity="0.75"
+            filter="url(#strongGlow)"
+        />
+
+        <!-- Linha quente superior -->
+        <path
+            d="M 445 150
+            C 448 111, 552 111, 555 150"
+            fill="none"
+            stroke="#FFF7CC"
+            stroke-width="3"
+            stroke-linecap="round"
+            opacity="0.9"
+        />
+
+        <!-- Curvatura inferior da luz -->
+        <path
+            d="M 440 150
+            C 443 197, 557 197, 560 150"
+            fill="none"
+            stroke="#F97316"
+            stroke-width="7"
+            stroke-linecap="round"
+            opacity="0.65"
+            filter="url(#strongGlow)"
+        />
+
+        <!-- Linha quente inferior -->
+        <path
+            d="M 446 150
+            C 450 189, 550 189, 554 150"
+            fill="none"
+            stroke="#FDBA74"
+            stroke-width="3"
+            stroke-linecap="round"
+            opacity="0.75"
+        />
+
+        <!-- Brilho ao redor do horizonte -->
+        <circle
+            cx="500"
+            cy="150"
+            r="59"
+            fill="url(#eventGlow)"
+        />
+
+        <!-- Horizonte de eventos -->
+        <circle
+            cx="500"
+            cy="150"
+            r="44"
+            fill="#000000"
+        />
+
+        <!-- Contorno luminoso do horizonte -->
+        <circle
+            cx="500"
+            cy="150"
+            r="47"
+            fill="none"
+            stroke="#FDBA74"
+            stroke-width="2"
+            opacity="0.75"
+            filter="url(#strongGlow)"
+        />
+
+        <!-- Faixa luminosa que passa na frente -->
+        <path
+            d="M 365 150
+            C 420 146, 580 154, 635 150"
+            fill="none"
+            stroke="url(#beamGradient)"
+            stroke-width="9"
+            stroke-linecap="round"
+            filter="url(#strongGlow)"
+        />
+
+        <!-- Núcleo branco da faixa -->
+        <path
+            d="M 375 150
+            C 430 148, 570 152, 625 150"
+            fill="none"
+            stroke="#FFF7CC"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            opacity="0.95"
+        />
+
+    </g>
 
     <!-- Aura luminosa do disco de acreção -->
     <ellipse
@@ -143,7 +263,7 @@
         cy="150"
         rx="135"
         ry="45"
-        fill="url(#accretionGlow)"
+        fill="url(#eventGlow)"
         opacity="0.7"
     />
 
@@ -158,7 +278,7 @@
         stroke="url(#accretionGradient)"
         stroke-width="14"
         opacity="0.25"
-        filter="url(#glowAccretion)"
+        filter="url(#strongGlow)"
     />
 
     <!-- Disco principal -->
