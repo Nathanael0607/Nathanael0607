@@ -106,14 +106,29 @@
         />
     </circle>
 
-    <!--Brilho externo do buraco negro-->
-    <circle 
+    <!-- Brilho externo pulsante do buraco negro -->
+    <circle
         cx="500"
         cy="150"
-        r="2"
+        r="72"
         fill="#7C3AED"
-        opacity="0.10"
+        opacity="0.10">
+
+        <animate
+            attributeName="opacity"
+            values="0.06;0.18;0.06"
+            dur="6s"
+            repeatCount="indefinite"
         />
+
+        <animate
+            attributeName="r"
+            values="68;78;68"
+            dur="6s"
+            repeatCount="indefinite"
+        />
+
+    </circle>
 
     <!-- Disco de acreção -->
     <!-- Brilho externo do disco -->
