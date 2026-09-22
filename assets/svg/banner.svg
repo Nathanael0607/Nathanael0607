@@ -437,30 +437,31 @@
     />
 
     <!-- Terceiro contorno inferior -->
-<path
-    d="
-        M 463 160
-        C 468 198, 532 198, 537 160
-    "
-    fill="none"
-    stroke="#F97316"
-    stroke-width="2.9"
-    stroke-linecap="round"
-    opacity="0.75"
-/>
+    <path
+        d="
+            M 463 160
+            C 468 198, 532 198, 537 160
+        "
+        fill="none"
+        stroke="#F97316"
+        stroke-width="2.9"
+        stroke-linecap="round"
+        opacity="0.75"
+    />
 
-<!-- Quarto contorno inferior -->
-<path
-    d="
-        M 462 161
-        C 470 206, 540 198, 537 158
-    "
-    fill="none"
-    stroke="#F97316"
-    stroke-width="4"
-    stroke-linecap="round"
-    opacity="0.55"
-/>
+    <!-- Quarto contorno inferior -->
+    <path
+        d="
+            M 462 161
+            C 470 206, 540 198, 537 158
+        "
+        fill="none"
+        stroke="#F97316"
+        stroke-width="4"
+        stroke-linecap="round"
+        opacity="0.55"
+        filter="url(#strongGlow)"
+    />
 
     <!-- ================================= -->
     <!-- PARTE FRONTAL DO MESMO ANEL      -->
