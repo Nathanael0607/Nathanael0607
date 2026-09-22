@@ -6,6 +6,16 @@
 
     <defs>
 
+        <!-- Recorte da parte frontal do disco -->
+        <clipPath id="frontDiskClip">
+            <rect
+                x="340"
+                y="144"
+                width="320"
+                height="12"
+            />
+        </clipPath>
+
         <!-- Fundo -->
         <linearGradient id="space" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#020617"/>
@@ -23,27 +33,92 @@
             <feGaussianBlur stdDeviation="35"/>
         </filter>
 
-        <!-- Gradiente do disco de acreção -->
-        <linearGradient id="accretionGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#F97316"/>
-            <stop offset="50%" stop-color="#FDE68A"/>
-            <stop offset="100%" stop-color="#DC2626"/>
+        <!-- Gradiente principal do disco de acreção -->
+        <linearGradient
+            id="accretionGradient"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="0%">
+
+            <stop
+                offset="0%"
+                stop-color="#DC2626"
+            />
+
+            <stop
+                offset="25%"
+                stop-color="#F97316"
+            />
+
+            <stop
+                offset="50%"
+                stop-color="#FFF7CC"
+            />
+
+            <stop
+                offset="75%"
+                stop-color="#F97316"
+            />
+
+            <stop
+                offset="100%"
+                stop-color="#DC2626"
+            />
+
+        </linearGradient>
+
+
+        <!-- Aura do disco de acreção -->
+        <radialGradient
+            id="accretionGlow"
+            cx="50%"
+            cy="50%"
+            r="50%">
+
+            <stop
+                offset="0%"
+                stop-color="#FDE68A"
+                stop-opacity="0.35"
+            />
+
+            <stop
+                offset="45%"
+                stop-color="#F97316"
+                stop-opacity="0.20"
+            />
+
+            <stop
+                offset="100%"
+                stop-color="#DC2626"
+                stop-opacity="0"
+            />
+
+        </radialGradient>
+        <linearGradient id="beamGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#DC2626" stop-opacity="0"/>
+            <stop offset="18%" stop-color="#F97316" stop-opacity="0.8"/>
+            <stop offset="45%" stop-color="#FFF7CC"/>
+            <stop offset="55%" stop-color="#FFFFFF"/>
+            <stop offset="82%" stop-color="#F97316" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#DC2626" stop-opacity="0"/>
         </linearGradient>
 
         <!-- Brilho do disco -->
-        <filter id="glowAccretion">
-            <feGaussianBlur stdDeviation="6" result="blur"/>
+        <filter id="strongGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="5" result="blur"/>
             <feMerge>
-                <feMergeNode in="blur"/>
-                <feMergeNode in="SourceGraphic"/>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
             </feMerge>
         </filter>
 
         <!-- Gradiente radial de brilho do disco -->
-        <radialGradient id="accretionGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#FDE68A" stop-opacity="0.45"/>
-            <stop offset="45%" stop-color="#F97316" stop-opacity="0.22"/>
-            <stop offset="100%" stop-color="#DC2626" stop-opacity="0"/>
+        <radialGradient id="eventGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="55%" stop-color="#000000"/>
+            <stop offset="72%" stop-color="#F97316" stop-opacity="0.45"/>
+            <stop offset="100%" stop-color="#F97316" stop-opacity="0"/>
         </radialGradient>
 
     </defs>
@@ -113,136 +188,337 @@
         />
     </circle>
 
+
     <!-- Brilho externo pulsante do buraco negro -->
-    <circle
-        cx="500"
-        cy="150"
-        r="72"
-        fill="#7C3AED"
-        opacity="0.10">
+    <!-- ================================= -->
+    <!-- BURACO NEGRO                     -->
+    <!-- ================================= -->
 
-        <animate
-            attributeName="opacity"
-            values="0.06;0.18;0.06"
-            dur="6s"
-            repeatCount="indefinite"
-        />
+    <g id="black-hole">
 
-        <animate
-            attributeName="r"
-            values="68;78;68"
-            dur="6s"
-            repeatCount="indefinite"
-        />
-
-    </circle>
-
-    <!-- Aura luminosa do disco de acreção -->
+    <!-- 1. Aura externa -->
     <ellipse
         cx="500"
         cy="150"
-        rx="135"
-        ry="45"
+        rx="145"
+        ry="55"
         fill="url(#accretionGlow)"
-        opacity="0.7"
+        opacity="0.55"
     />
 
-    <!-- Disco de acreção -->
-    <!-- Brilho externo do disco -->
-    <ellipse
-        cx="500"
-        cy="150"
-        rx="112"
-        ry="32"
+    <!-- ================================= -->
+    <!-- ANEL ÚNICO DO DISCO DE ACREÇÃO   -->
+    <!-- ================================= -->
+
+    <!-- Estrutura traseira do anel -->
+    <path
+        id="accretionRing"
+        pathLength="1000"
+        d="
+            M 365 150
+
+            C 390 149, 420 145, 440 135
+            C 452 116, 472 108, 500 108
+            C 528 108, 548 116, 560 135
+            C 580 145, 610 149, 640 150
+
+            C 615 155, 585 156, 555 154
+            C 535 153, 515 152, 500 152
+            C 485 152, 465 153, 445 154
+            C 415 156, 385 155, 360 150
+
+            Z
+        "
         fill="none"
         stroke="url(#accretionGradient)"
-        stroke-width="14"
-        opacity="0.25"
-        filter="url(#glowAccretion)"
+        stroke-width="9"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        opacity="0.9"
     />
 
-    <!-- Disco principal -->
-    <ellipse
-        cx="500"
-        cy="150"
-        rx="105"
-        ry="28"
+    <!-- Brilho difuso traseiro -->
+    <use
+        href="#accretionRing"
         fill="none"
-        stroke="url(#accretionGradient)"
-        stroke-width="8"
-        opacity="0.95"
+        stroke="#F97316"
+        stroke-width="18"
+        opacity="0.22"
+        filter="url(#strongGlow)"
     />
 
-    <!-- Linha interna mais quente -->
-    <ellipse
-        cx="500"
-        cy="150"
-        rx="92"
-        ry="22"
+    <!-- ================================= -->
+    <!-- PLASMA TRASEIRO                   -->
+    <!-- ================================= -->
+
+    <!-- Halo branco do plasma traseiro -->
+    <path
+        pathLength="1000"
+        d="
+            M 365 150
+            C 390 149, 420 145, 440 135
+            C 452 116, 472 108, 500 108
+            C 528 108, 548 116, 560 135
+            C 580 145, 610 149, 640 150
+        "
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="12"
+        stroke-linecap="round"
+        stroke-dasharray="140 860"
+        opacity="0.45"
+        filter="url(#strongGlow)">
+
+        <animate
+            attributeName="stroke-dashoffset"
+            from="0"
+            to="-1000"
+            dur="7s"
+            begin="-3.5s"
+            repeatCount="indefinite"
+        />
+
+    </path>
+
+    <!-- Núcleo branco do plasma traseiro -->
+    <path
+        pathLength="1000"
+        d="
+            M 365 150
+            C 390 149, 420 145, 440 135
+            C 452 116, 472 108, 500 108
+            C 528 108, 548 116, 560 135
+            C 580 145, 610 149, 640 150
+        "
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-dasharray="140 860"
+        opacity="1">
+
+        <animate
+            attributeName="stroke-dashoffset"
+            from="0"
+            to="-1000"
+            dur="7s"
+            begin="-3.5s"
+            repeatCount="indefinite"
+        />
+
+    </path>
+
+    <!-- Núcleo branco do plasma traseiro -->
+    <path
+        pathLength="1000"
+        d="
+            M 365 150
+            C 390 149, 420 145, 440 135
+            C 452 116, 472 108, 500 108
+            C 528 108, 548 116, 560 135
+            C 580 145, 610 149, 640 150
+        "
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-dasharray="140 860"
+        opacity="1">
+
+        <animate
+            attributeName="stroke-dashoffset"
+            from="0"
+            to="-1000"
+            dur="7s"
+            begin="-3.5s"
+            repeatCount="indefinite"
+        />
+
+    </path>
+        
+    <!-- ============================== -->
+    <!-- LENTE GRAVITACIONAL TRASEIRA  -->
+    <!-- ============================== -->
+
+    <!-- Arco superior externo -->
+    <path
+        d="M 440 150
+           C 442 100, 558 100, 560 150"
+        fill="none"
+        stroke="#F97316"
+        stroke-width="10"
+        stroke-linecap="round"
+        opacity="0.55"
+        filter="url(#strongGlow)"
+    />
+
+    <!-- Arco superior quente -->
+    <path
+        d="M 445 150
+           C 447 108, 553 108, 555 150"
         fill="none"
         stroke="#FFF7CC"
         stroke-width="3"
-        opacity="0.65"
+        stroke-linecap="round"
+        opacity="0.95"
     />
 
-    <!-- Arco brilhante esquerdo animado -->
-    <ellipse
-        cx="500"
-        cy="150"
-        rx="105"
-        ry="28"
-        fill="none"
-        stroke="#FFF7CC"
-        stroke-width="5"
-        stroke-linecap="round"
-        stroke-dasharray="90 570"
-        opacity="0.9">
+    <!-- ============================== -->
+    <!-- HORIZONTE DE EVENTOS          -->
+    <!-- ============================== -->
 
-        <animate
-            attributeName="stroke-dashoffset"
-            values="20;-640"
-            dur="8s"
-            repeatCount="indefinite"
-        />
-
-    </ellipse>
-
-    <!-- Arco brilhante direito animado -->
-    <ellipse
-        cx="500"
-        cy="150"
-        rx="105"
-        ry="28"
-        fill="none"
-        stroke="#FDBA74"
-        stroke-width="4"
-        stroke-linecap="round"
-        stroke-dasharray="65 595"
-        opacity="0.75">
-
-        <animate
-            attributeName="stroke-dashoffset"
-            values="-160;-820"
-            dur="11s"
-            repeatCount="indefinite"
-        />
-
-    </ellipse>
-
-    <!-- Horizonte de eventos -->
+    <!-- Região preta -->
     <circle
         cx="500"
         cy="150"
-        r="48"
+        r="46"
         fill="#000000"
     />
 
-    <!-- Sombra interna -->
+    <!-- Borda quente externa -->
     <circle
         cx="500"
         cy="150"
-        r="36"
-        fill="#020617"
+        r="47"
+        fill="none"
+        stroke="#F97316"
+        stroke-width="2"
+        opacity="0.85"
+        filter="url(#strongGlow)"
     />
+
+
+    <!-- ============================== -->
+    <!-- CONTORNOS INTERNOS            -->
+    <!-- ============================== -->
+
+    <!-- Contorno interno superior -->
+    <path
+        d="M 468 137
+           C 476 116, 524 116, 532 137"
+        fill="none"
+        stroke="#FDBA74"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        opacity="0.95"
+    />
+
+    <!-- Segundo brilho superior -->
+    <path
+        d="M 473 135
+           C 480 122, 520 122, 527 135"
+        fill="none"
+        stroke="#FFF7CC"
+        stroke-width="1"
+        stroke-linecap="round"
+        opacity="0.75"
+    />
+
+    <!-- Contorno interno inferior -->
+    <path
+        d="M 468 163
+           C 476 184, 524 184, 532 163"
+        fill="none"
+        stroke="#F97316"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        opacity="0.90"
+    />
+
+    <!-- Segundo brilho inferior -->
+    <path
+        d="M 473 165
+           C 480 178, 520 178, 527 165"
+        fill="none"
+        stroke="#FDBA74"
+        stroke-width="1"
+        stroke-linecap="round"
+        opacity="0.70"
+    />
+
+    <!-- ================================= -->
+    <!-- PARTE FRONTAL DO MESMO ANEL      -->
+    <!-- ================================= -->
+
+    <!-- Disco frontal -->
+    <use
+        href="#accretionRing"
+        clip-path="url(#frontDiskClip)"
+        fill="none"
+        stroke="url(#beamGradient)"
+        stroke-width="9"
+        stroke-linecap="round"
+        opacity="1"
+        filter="url(#strongGlow)"
+    />
+
+    <!-- Centro quente do disco frontal -->
+    <use
+        href="#accretionRing"
+        clip-path="url(#frontDiskClip)"
+        fill="none"
+        stroke="#FFF7CC"
+        stroke-width="4"
+        stroke-linecap="round"
+        opacity="0.95"/>
+
+    <!-- ================================= -->
+    <!-- PLASMA BRANCO FRONTAL             -->
+    <!-- ================================= -->
+
+    <!-- Halo branco do plasma frontal -->
+    <path
+        pathLength="1000"
+        d="
+            M 360 150
+            C 405 158, 455 157, 500 154
+            C 545 157, 595 158, 640 150
+        "
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="12"
+        stroke-linecap="round"
+        stroke-dasharray="120 880"
+        stroke-dashoffset="0"
+        opacity="0.45"
+        filter="url(#strongGlow)">
+
+        <animate
+            attributeName="stroke-dashoffset"
+            from="0"
+            to="-1000"
+            dur="5s"
+            repeatCount="indefinite"
+        />
+
+    </path>
+
+    <!-- Núcleo branco do plasma frontal -->
+    <path
+        pathLength="1000"
+        d="
+            M 360 150
+            C 405 158, 455 157, 500 154
+            C 545 157, 595 158, 640 150
+        "
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="5"
+        stroke-linecap="round"
+        stroke-dasharray="120 880"
+        stroke-dashoffset="0"
+        opacity="1">
+
+        <animate
+            attributeName="stroke-dashoffset"
+            from="0"
+            to="-1000"
+            dur="5s"
+            repeatCount="indefinite"
+        />
+
+    </path>
+
+    </g>
 
 </svg>
