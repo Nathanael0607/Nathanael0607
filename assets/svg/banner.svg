@@ -209,6 +209,26 @@
         />
     </circle>
 
+<!-- ================================= -->
+<!-- NOME                              -->
+<!-- ================================= -->
+
+<g id="name">
+
+    <text
+        x="30"
+        y="125"
+        fill="#F8FAFC"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="26"
+        font-weight="500"
+        letter-spacing="4"
+    >
+        NATHANAEL SANTOS
+    </text>
+
+</g>
+
 
     <!-- Brilho externo pulsante do buraco negro -->
     <!-- ================================= -->
