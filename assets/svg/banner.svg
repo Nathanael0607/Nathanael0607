@@ -121,6 +121,27 @@
             <stop offset="100%" stop-color="#F97316" stop-opacity="0"/>
         </radialGradient>
 
+        <!-- Gradiente do rastro da estrela cadente -->
+        <linearGradient
+            id="shootingStarGradient"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
+        >
+            <stop
+                offset="0%"
+                stop-color="#FFFFFF"
+                stop-opacity="0"
+            />
+
+            <stop
+                offset="100%"
+                stop-color="#FFFFFF"
+                stop-opacity="0.9"
+            />
+        </linearGradient>
+
     </defs>
 
     <rect
@@ -553,7 +574,7 @@
 
     <g id="spaceship">
 
-        <!-- Corpo principal da nave -->
+    <!-- Corpo principal da nave -->
     <path
         d="
             M 100 225
@@ -664,6 +685,68 @@
         dur="12s"
         repeatCount="indefinite"
     />
+
+    </g>
+
+    <!-- ================================= -->
+    <!-- ESTRELA CADENTE                   -->
+    <!-- ================================= -->
+
+    <g id="shooting-star" opacity="0">
+
+    <!-- Mostra a estrela somente durante o voo -->
+<animate
+    attributeName="opacity"
+    from="1"
+    to="1"
+    dur="3s"
+    begin="0s; shootingStarOpacity.end+7s"
+    id="shootingStarOpacity"
+    fill="remove"
+/>
+
+    <!-- Rastro -->
+    <path
+        d="
+            M 760 45
+            L 715 15
+        "
+        fill="none"
+        stroke="url(#shootingStarGradient)"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        opacity="0.45"
+    />
+
+    <!-- Halo da estrela cadente -->
+    <circle
+        cx="760"
+        cy="45"
+        r="6"
+        fill="#FFFFFF"
+        opacity="0.18"
+        filter="url(#strongGlow)"
+    />
+
+    <!-- Cabeça da estrela -->
+    <circle
+        cx="760"
+        cy="45"
+        r="2.8"
+        fill="#FFFFFF"
+    />
+
+   <!-- Movimento da estrela cadente -->
+<animateTransform
+    id="shootingStarMove"
+    attributeName="transform"
+    type="translate"
+    from="-120 -80"
+    to="260 171"
+    dur="3s"
+    begin="0s; shootingStarMove.end+7s"
+    fill="remove"
+/>
 
     </g>
 
