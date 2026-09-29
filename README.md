@@ -25,3 +25,18 @@
 ### Ferramentas
 
 <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white"> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/IntelliJ_IDEA-000000?style=for-the-badge&logo=intellijidea&logoColor=white"> <img src="https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white"> <img src="https://img.shields.io/badge/MySQL_Workbench-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> <img src="https://img.shields.io/badge/Apache_NetBeans-1B6AC6?style=for-the-badge&logo=apachenetbeanside&logoColor=white">
+
+## 🎓 Formação e Certificações
+
+### Formação Acadêmica
+
+🎓 **Análise e Desenvolvimento de Sistemas** — Universidade de Mogi das Cruzes (UMC)  
+Conclusão prevista: dezembro de 2026
+
+### Certificações
+
+📜 **[HTML e CSS: ambiente, estrutura e estilo](https://cursos.alura.com.br/certificate/9cc0c354-66fb-4531-af1b-a181565ff01a)** — Alura  
+20 horas • Concluído em setembro de 2026
+
+📜 **[HTML e CSS: formulários, SEO e acessibilidade](https://cursos.alura.com.br/certificate/804c4b68-4d08-4f31-b17b-1ea9b4d465d3)** — Alura  
+6 horas • Concluído em setembro de 2026
