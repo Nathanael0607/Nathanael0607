@@ -40,3 +40,9 @@ Conclusão prevista: dezembro de 2026
 
 📜 **[HTML e CSS: formulários, SEO e acessibilidade](https://cursos.alura.com.br/certificate/804c4b68-4d08-4f31-b17b-1ea9b4d465d3)** — Alura  
 6 horas • Concluído em setembro de 2026
+
+## 📊 Estatísticas do GitHub
+
+<p align="center">
+  
+</p>
