@@ -1,0 +1,27 @@
+name: Gerar estatísticas do GitHub
+
+on:
+  workflow_dispatch:
+
+jobs:
+  gerar-estatisticas:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v6
+      - name: Gerar estatísticas gerais
+        uses: stats-organization/github-readme-stats-action@v1
+        with:
+          card: stats
+          options: username=Nathanael0607&show_icons=true&theme=tokyonight&locale=pt-br
+          path: assets/svg/github-stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Salvar estatísticas no repositório
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+            commit_message: "chore: atualiza estatísticas do GitHub"
+            file_pattern: assets/svg/github-stats.svg
