@@ -20,6 +20,7 @@ jobs:
           options: username=Nathanael0607&show_icons=true&theme=tokyonight&locale=pt-br
           path: assets/svg/github-stats.svg
           token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
       - name: Salvar estatísticas no repositório
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
