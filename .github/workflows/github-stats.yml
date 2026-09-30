@@ -14,7 +14,7 @@ jobs:
       - name: Baixar o repositório
         uses: actions/checkout@v6
       - name: Gerar estatísticas gerais
-        uses: stats-organization/github-readme-stats-action@v1
+        uses: stats-organization/github-readme-stats-action@v2
         with:
           card: stats
           options: username=Nathanael0607&show_icons=true&theme=tokyonight&locale=pt-br
