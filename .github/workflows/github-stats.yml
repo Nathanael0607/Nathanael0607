@@ -1,3 +1,4 @@
+
 name: Gerar estatísticas do GitHub
 
 on:
@@ -13,6 +14,7 @@ jobs:
     steps:
       - name: Baixar o repositório
         uses: actions/checkout@v6
+
       - name: Gerar estatísticas gerais
         uses: stats-organization/github-readme-stats-action@v2
         with:
@@ -21,8 +23,18 @@ jobs:
           path: assets/svg/github-stats.svg
           token: ${{ secrets.STATS_TOKEN }}
           fail_on_error: true
+
+      - name: Gerar linguagens mais utilizadas
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: username=Nathanael0607&layout=compact&theme=tokyonight&locale=pt-br
+          path: assets/svg/github-top-langs.svg
+          token: ${{ secrets.STATS_TOKEN }}
+          fail_on_error: true
+
       - name: Salvar estatísticas no repositório
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
-            commit_message: "chore: atualiza estatísticas do GitHub"
-            file_pattern: assets/svg/github-stats.svg
+          commit_message: "chore: atualiza estatísticas do GitHub"
+          file_pattern: assets/svg/github-stats.svg assets/svg/github-top-langs.svg
