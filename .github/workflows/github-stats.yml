@@ -33,6 +33,21 @@ jobs:
           token: ${{ secrets.STATS_TOKEN }}
           fail_on_error: true
 
+      - name: Validar arquivos SVG
+        run: |
+          python3 - <<'PY'
+          import xml.etree.ElementTree as ET
+
+          arquivos = [
+              "assets/svg/github-stats.svg",
+              "assets/svg/github-top-langs.svg"
+          ]
+
+          for arquivo in arquivos:
+              ET.parse(arquivo)
+              print(f"SVG válido: {arquivo}")
+          PY
+
       - name: Salvar estatísticas no repositório
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
