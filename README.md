@@ -43,6 +43,15 @@ Conclusão prevista: dezembro de 2026
 
 ## 📊 Estatísticas do GitHub
 
-<p align="center">
-  
-</p>
+<div align="center">
+  <img
+    src="assets/svg/github-stats.svg"
+    height="165"
+    alt="Estatísticas gerais do GitHub"
+  />
+  <img
+    src="assets/svg/github-top-langs.svg"
+    height="165"
+    alt="Linguagens mais utilizadas"
+  />
+</div>
