@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="assets/svg/bunner.svg" width="100%">
+    <img src="assets/svg/banner.svg" width="100%">
 </p>
 
 ## 👨‍💻 Sobre mim
