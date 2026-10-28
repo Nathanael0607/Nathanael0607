@@ -8,8 +8,8 @@
         role="img"
         aria-labelledby="descId"
       >
-        <title id="titleId">Estat&#237;sticas do GitHub de Nathanael Santos, Rank: C+</title>
-        <desc id="descId">Total de estrelas: 0, Total de Commits  (Ano passado) : 231, Total de PRs: 78, Total de Issues: 1, Contribuiu para (ano passado): 2</desc>
+        <title id="titleId">Estat&#237;sticas do GitHub de Nathanael Santos, Rank: B-</title>
+        <desc id="descId">Total de estrelas: 0, Total de Commits  (Ano passado) : 241, Total de PRs: 82, Total de Issues: 1, Contribuiu para (ano passado): 2</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 189.42127381421628;
+        stroke-dashoffset: 187.66809739821298;
       }
     }
   
@@ -150,7 +150,7 @@
         <g class="rank-text">
           
         <text x="-5" y="3" alignment-baseline="central" dominant-baseline="central" text-anchor="middle" data-testid="level-rank-icon">
-          C+
+          B-
         </text>
       
         </g>
@@ -184,7 +184,7 @@
         x="274.01"
         y="12.5"
         data-testid="commits"
-      >231</text>
+      >241</text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="stagger" style="animation-delay: 750ms" transform="translate(25, 0)">
@@ -199,7 +199,7 @@
         x="274.01"
         y="12.5"
         data-testid="prs"
-      >78</text>
+      >82</text>
     </g>
   </g><g transform="translate(0, 75)">
     <g class="stagger" style="animation-delay: 900ms" transform="translate(25, 0)">
